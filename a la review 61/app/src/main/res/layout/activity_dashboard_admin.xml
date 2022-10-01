@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".DashboardAdminActivity">
+
+    <!--toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar02">
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:text="Dashboard Admin"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/subTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/titleTv"
+            android:text="abs@example.com"
+            android:textColor="@color/white"/>
+        <ImageButton
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_logout_white"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"/>
+    </RelativeLayout>
+
+    <!--Pesquisar-->
+    <EditText
+        android:id="@+id/searchEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRl"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/dois"
+        android:drawableStart="@drawable/ic_search_gray"
+        android:hint="Pesquisar"
+        android:padding="10dp"
+        android:textColorHint="@color/um"/>
+
+    <!--Exibir Categorias-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchEt"
+        android:layout_above="@id/buttomLl"
+        android:layout_margin="5dp"
+        tools:listitem="@layout/row_category"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <!--Buttom layout-->
+    <LinearLayout
+        android:id="@+id/buttomLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+
+        />
+
+    <!--Adicionar Categoria-->
+    <Button
+        android:id="@+id/addCategoryBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/shape_buttom01"
+        android:minHeight="50dp"
+        android:text="Adicionar Categoria"
+        android:textAllCaps="false"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addPdfFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/tres"
+        app:fabCustomSize="50dp"
+        android:src="@drawable/ic_pdf_white"
+        app:tint="@color/white"/>
+
+</RelativeLayout>

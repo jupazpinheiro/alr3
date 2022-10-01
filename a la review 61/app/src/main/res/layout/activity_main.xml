@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/um"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logo0b"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon"
+        android:layout_centerHorizontal="true"
+        android:text="Estávamos a sua espera"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/tres"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="ENTRAR"
+        android:textStyle="bold"
+        android:background="@drawable/shape_buttom01"
+        android:layout_above="@id/skipBtn"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="10dp"
+        android:height="30dp"
+        />
+    <Button
+        android:id="@+id/skipBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="SEM LOGIN"
+        android:textColor="@color/cinco"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        android:background="@drawable/shape_buttom02"
+        android:height="30dp"
+        android:gravity="center"
+        />
+</RelativeLayout>
