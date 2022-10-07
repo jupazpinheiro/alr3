@@ -29,16 +29,16 @@
             android:textStyle="bold"
             android:layout_centerHorizontal="true"/>
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/profileIv"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/toolbatTitleTv"
-                android:layout_marginTop="40dp"
-                android:src="@drawable/ic_person_gray"
-                android:background="@color/white"
-                app:shapeAppearanceOverlay="@style/styleRoundedCornersImage"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIv"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_below="@+id/toolbatTitleTv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_person_gray"
+            app:shapeAppearanceOverlay="@style/styleRoundedCornersImage" />
     </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"

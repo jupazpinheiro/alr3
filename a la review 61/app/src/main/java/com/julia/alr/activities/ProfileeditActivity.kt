@@ -1,12 +1,15 @@
 package com.julia.alr.activities
 
+import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Instrumentation
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -17,6 +20,8 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.PopupMenu
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -36,6 +41,8 @@ class ProfileeditActivity : AppCompatActivity() {
     private var imageUri: Uri?= null
     private lateinit var progressDialog: ProgressDialog
 
+    private val CAMERA_PERMISSION_CODE = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityProfileeditBinding.inflate(layoutInflater)
@@ -52,7 +59,12 @@ class ProfileeditActivity : AppCompatActivity() {
             onBackPressed()
         }
         binding.profileIv.setOnClickListener{
-            showImageAttachMenu()
+            checkPermission(
+                Manifest.permission.CAMERA,
+                CAMERA_PERMISSION_CODE)
+            if (CAMERA_PERMISSION_CODE==100){
+            showImageAttachMenu()}
+
         }
         binding.updateBtn.setOnClickListener{
             validadeData()
@@ -205,4 +217,27 @@ class ProfileeditActivity : AppCompatActivity() {
             }
         }
     )
+
+    private fun checkPermission(permission: String, requestCode: Int) {
+        if (ContextCompat.checkSelfPermission(this@ProfileeditActivity, permission) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this@ProfileeditActivity, arrayOf(permission), requestCode)
+            Toast.makeText(this@ProfileeditActivity, "Permissão necessária", Toast.LENGTH_SHORT).show()
+
+        } else {
+            Toast.makeText(this@ProfileeditActivity, "Permissão concedida", Toast.LENGTH_SHORT).show()
+
+        }
+    }
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>,
+                                            grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this@ProfileeditActivity, "Camera Permission Granted", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this@ProfileeditActivity, "Camera Permission Denied", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
 }
