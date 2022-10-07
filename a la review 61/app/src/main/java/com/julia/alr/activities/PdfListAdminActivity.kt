@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +9,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.julia.alr.adapters.AdapterPdfAdmin
 import com.julia.alr.databinding.ActivityPdfListAdminBinding
+import com.julia.alr.models.ModelPdf
 import java.lang.Exception
 
 class PdfListAdminActivity : AppCompatActivity() {
@@ -32,6 +34,10 @@ class PdfListAdminActivity : AppCompatActivity() {
         val intent = intent
         categoryId = intent.getStringExtra("categoryId")!!
         category = intent.getStringExtra("category")!!
+
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         binding.subTitleTv.text = category
         loadPdfList()

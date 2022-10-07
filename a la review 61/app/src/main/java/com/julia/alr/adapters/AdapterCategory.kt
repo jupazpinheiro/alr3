@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.adapters
 
 import android.app.AlertDialog
 import android.content.Context
@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
+import com.julia.alr.filters.FilterCategory
+import com.julia.alr.models.ModelCategory
+import com.julia.alr.activities.PdfListAdminActivity
 import com.julia.alr.databinding.RowCategoryBinding
 
 class AdapterCategory : RecyclerView.Adapter<AdapterCategory.HolderCategory>, Filterable {

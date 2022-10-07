@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.adapters
 
 
 import android.content.Context
@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.julia.alr.filters.FilterPdfAdmin
+import com.julia.alr.MyApplication
 import com.julia.alr.databinding.RowPdfAdminBinding
+import com.julia.alr.models.ModelPdf
 
 class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
 
@@ -17,7 +20,7 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
     private var filterList: ArrayList<ModelPdf>
 
     private lateinit var binding: RowPdfAdminBinding
-     var filter: FilterPdfAdmin ?= null
+     var filter: FilterPdfAdmin?= null
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
         this.context = context
@@ -45,8 +48,14 @@ class AdapterPdfAdmin : RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Fi
         holder.dateTv.text = formattedDate
 
         MyApplication.loadCategory(categoryId, holder.categoryTv)
-        MyApplication.loadPdfFromUrlSinglePager(pdfUrl, title, holder.pdfView, holder.progressBar, null)
-        MyApplication.loadPdfSize(pdfUrl,title, holder.sizeTv)
+        MyApplication.loadPdfFromUrlSinglePager(
+            pdfUrl,
+            title,
+            holder.pdfView,
+            holder.progressBar,
+            null
+        )
+        MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
 
 
     }

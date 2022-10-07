@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".DashboardAdminActivity">
+    tools:context=".activities.DashboardAdminActivity">
 
     <!--toolbar-->
     <RelativeLayout
@@ -13,6 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="@drawable/shape_toolbar02">
+
+        <ImageButton
+            android:id="@+id/profileBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_person_gray" />
+
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
@@ -76,14 +86,12 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-
-        />
+        android:layout_marginBottom="10dp">
 
     <!--Adicionar Categoria-->
     <Button
         android:id="@+id/addCategoryBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@drawable/shape_buttom01"
@@ -101,5 +109,5 @@
         app:fabCustomSize="50dp"
         android:src="@drawable/ic_pdf_white"
         app:tint="@color/white"/>
-
+    </LinearLayout>
 </RelativeLayout>

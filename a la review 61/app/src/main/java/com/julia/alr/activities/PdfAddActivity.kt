@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.activities
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
@@ -8,13 +8,11 @@ import android.net.Uri
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.getSystemService
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -23,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.julia.alr.databinding.ActivityPdfAddBinding
+import com.julia.alr.models.ModelCategory
 
 class PdfAddActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPdfAddBinding

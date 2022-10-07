@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.activities
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -84,11 +84,11 @@ class LoginActivity : AppCompatActivity() {
                     progressDialog.dismiss()
                     val userType = snapshot.child("userType").value
                     if(userType =="user"){
-                        startActivity(Intent(this@LoginActivity,DashboardUserActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashboardUserActivity::class.java))
                         finish()
                     }
                     else if (userType == "admin"){
-                        startActivity(Intent(this@LoginActivity,DashboardAdminActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashboardAdminActivity::class.java))
                         finish()
                     }
                 }

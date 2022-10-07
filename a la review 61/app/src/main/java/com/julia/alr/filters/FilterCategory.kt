@@ -1,6 +1,8 @@
-package com.julia.alr
+package com.julia.alr.filters
 
 import android.widget.Filter
+import com.julia.alr.adapters.AdapterCategory
+import com.julia.alr.models.ModelCategory
 
 
 class FilterCategory: Filter {

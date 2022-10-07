@@ -1,7 +1,8 @@
-package com.julia.alr
+package com.julia.alr.filters
 
 import android.widget.Filter
-import androidx.constraintlayout.widget.ConstraintSet
+import com.julia.alr.adapters.AdapterPdfAdmin
+import com.julia.alr.models.ModelPdf
 
 
 class FilterPdfAdmin : Filter {

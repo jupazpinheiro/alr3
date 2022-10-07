@@ -1,8 +1,9 @@
-package com.julia.alr
+package com.julia.alr.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.julia.alr.databinding.ActivityDashboardUserBinding
 
@@ -21,8 +22,12 @@ class DashboardUserActivity : AppCompatActivity() {
 
         binding.logoutBtn.setOnClickListener {
             firebaseAuth.signOut()
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
+        }
+
+        binding.profileBtn.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 
@@ -32,10 +37,16 @@ class DashboardUserActivity : AppCompatActivity() {
             //startActivity(Intent(this, MainActivity::class.java))
             //finish()
             binding.subTitleTv.text = "Não logado"
+
+            binding.profileBtn.visibility=View.GONE
+            binding.logoutBtn.visibility=View.GONE
         }
         else{
             val email = firebaseUser.email
             binding.subTitleTv.text = email
+
+            binding.profileBtn.visibility=View.GONE
+            binding.logoutBtn.visibility=View.GONE
         }
     }
 }

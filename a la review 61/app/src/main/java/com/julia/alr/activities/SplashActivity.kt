@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.julia.alr.R
 
 class SplashActivity : AppCompatActivity() {
 
@@ -40,11 +41,11 @@ class SplashActivity : AppCompatActivity() {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val userType = snapshot.child("userType").value
                         if(userType =="user"){
-                            startActivity(Intent(this@SplashActivity,DashboardUserActivity::class.java))
+                            startActivity(Intent(this@SplashActivity, DashboardUserActivity::class.java))
                             finish()
                         }
                         else if (userType == "admin"){
-                            startActivity(Intent(this@SplashActivity,DashboardAdminActivity::class.java))
+                            startActivity(Intent(this@SplashActivity, DashboardAdminActivity::class.java))
                             finish()
                         }
                     }

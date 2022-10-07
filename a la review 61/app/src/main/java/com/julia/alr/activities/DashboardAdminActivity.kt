@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +10,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.julia.alr.adapters.AdapterCategory
 import com.julia.alr.databinding.ActivityDashboardAdminBinding
+import com.julia.alr.models.ModelCategory
 import java.lang.Exception
 
 class DashboardAdminActivity : AppCompatActivity() {
@@ -57,6 +59,10 @@ class DashboardAdminActivity : AppCompatActivity() {
 
         binding.addPdfFab.setOnClickListener{
             startActivity(Intent(this, PdfAddActivity::class.java))
+        }
+
+        binding.profileBtn.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 

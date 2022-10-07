@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.activities
 
 import android.app.ProgressDialog
 import android.content.Intent

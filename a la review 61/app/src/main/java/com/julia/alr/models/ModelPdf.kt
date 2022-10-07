@@ -1,4 +1,4 @@
-package com.julia.alr
+package com.julia.alr.models
 
 class ModelPdf {
 

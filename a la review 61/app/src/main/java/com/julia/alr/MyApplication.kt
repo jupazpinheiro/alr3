@@ -53,7 +53,7 @@ class MyApplication: Application() {
         fun loadPdfFromUrlSinglePager(
             pdfUrl: String, pdfTitle: String, pdfView: PDFView, progressBar: ProgressBar, pagesTv: TextView?){
             val TAG="PDF_THUMBNNAIL_TAG"
-            val ref = FirebaseStorage.getInstance().getReference(pdfUrl)
+            val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
             ref.getBytes(Constants.MAX_BYTES_PDF)
                 .addOnSuccessListener { bytes ->
                     Log.d(TAG, "loadPdfSize: Tamanho: $bytes")
