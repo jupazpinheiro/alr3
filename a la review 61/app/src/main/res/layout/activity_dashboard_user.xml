@@ -12,7 +12,8 @@
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/shape_toolbar02">
+        android:background="@drawable/shape_toolbar02"
+        android:padding="10dp">
 
         <ImageButton
             android:id="@+id/profileBtn"
@@ -48,6 +49,47 @@
             android:src="@drawable/ic_logout_white"
             android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/toolbarRl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRl">
+    <TextView
+        android:id="@+id/nomeEt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lembrar de:"
+        android:textColor="@color/quatro"
+        />
+
+        <EditText
+            android:id="@+id/inputEt"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nomeEt"
+            android:background="@drawable/shape_edittext01"
+            android:gravity="top"
+            android:hint="Texto a salvar..."
+            android:inputType="textCapSentences|textMultiLine"
+            android:minHeight="150dp"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inputEt"
+            android:layout_alignParentRight="true"
+            android:text="Download" />
+        <Button
+            android:id="@+id/saveBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/saveBtn"
+            android:layout_alignParentRight="true"
+            android:text="Salvar" />
     </RelativeLayout>
 
 </RelativeLayout>
