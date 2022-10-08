@@ -23,15 +23,16 @@
             android:layout_marginStart="10dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_person_gray" />
+
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_centerHorizontal="true"
-            android:text="Dashboard User"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:layout_marginTop="8dp"
+            android:text="Cadastrado"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
@@ -90,6 +91,13 @@
             android:layout_below="@+id/saveBtn"
             android:layout_alignParentRight="true"
             android:text="Salvar" />
+        <Button
+            android:id="@+id/saveBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/saveBtn2"
+            android:layout_alignParentRight="true"
+            android:text="Salvar encriptado" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         binding.skipBtn.setOnClickListener{
-            startActivity(Intent(this, DashboardUserActivity::class.java))
+            startActivity(Intent(this, DashboardNotUserActivity::class.java))
         }
     }
 }

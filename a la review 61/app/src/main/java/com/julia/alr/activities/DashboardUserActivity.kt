@@ -13,6 +13,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.security.crypto.EncryptedFile
+import androidx.security.crypto.MasterKey
 import com.google.firebase.auth.FirebaseAuth
 import com.julia.alr.R
 import com.julia.alr.databinding.ActivityDashboardUserBinding
@@ -70,10 +72,20 @@ class DashboardUserActivity : AppCompatActivity() {
                 WRITE_REQUEST)
             val etxt = this.findViewById<EditText>(R.id.inputEt)
             var value = etxt.text.toString()
-            //etxt.setText(null)
-            //Toast.makeText(this@DashboardUserActivity, R.id.inputEt.toString(), Toast.LENGTH_SHORT).show()
             if (WRITE_REQUEST==10){
                 writeToFile(value)}
+        }
+        binding.saveBtn3.setOnClickListener {
+            val etxt = this.findViewById<EditText>(R.id.inputEt)
+            val masterK = MasterKey.Builder(this, MasterKey.DEFAULT_MASTER_KEY_ALIAS)
+                .setKeyScheme(MasterKey.KeyScheme.AES256_GCM).build()
+            val sdf = "Encrypto"+SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").format(Date())+".txt"
+            val writer = File(this.filesDir, sdf)
+            var encripto = EncryptedFile.Builder(this, writer, masterK, EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB).build()
+            var outEncript = encripto.openFileOutput()
+            outEncript.write(etxt.toString().toByteArray())
+            outEncript.close()
+
         }
     }
 
@@ -81,13 +93,9 @@ class DashboardUserActivity : AppCompatActivity() {
         try{
             val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").format(Date())+".txt"
             val writer = FileWriter(File(this.filesDir, sdf))
-            //writer.use { it.write(strJson) }
             writer.write("")
             writer.write(str)
             writer.close()
-            //var fo = FileWriter("teste.txt")
-            //fo.write(str)
-            //fo.close()
         }
         catch(e:Exception){
             print(e.message)
@@ -131,9 +139,9 @@ class DashboardUserActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == WRITE_REQUEST) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this@DashboardUserActivity, "Storage Permission Granted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DashboardUserActivity, "Permitido", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this@DashboardUserActivity, "Storage Permission Denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DashboardUserActivity, "Negada", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -143,7 +151,7 @@ class DashboardUserActivity : AppCompatActivity() {
             // Requesting the permission
             ActivityCompat.requestPermissions(this@DashboardUserActivity, arrayOf(permission), requestCode)
         } else {
-            Toast.makeText(this@DashboardUserActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@DashboardUserActivity, "Já foi permitido", Toast.LENGTH_SHORT).show()
         }
     }
 }

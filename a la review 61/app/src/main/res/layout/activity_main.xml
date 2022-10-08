@@ -43,17 +43,17 @@
         android:textSize="10dp"
         android:height="30dp"
         />
+
     <Button
         android:id="@+id/skipBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="SEM LOGIN"
+        android:height="30dp"
+        android:background="@drawable/shape_buttom02"
+        android:gravity="center"
+        android:text="ENCRIPTAR"
         android:textColor="@color/cinco"
         android:textSize="10dp"
-        android:textStyle="bold"
-        android:background="@drawable/shape_buttom02"
-        android:height="30dp"
-        android:gravity="center"
-        />
+        android:textStyle="bold" />
 </RelativeLayout>
